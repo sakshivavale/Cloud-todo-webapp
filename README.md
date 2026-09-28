@@ -1,6 +1,3 @@
-Absolutely. Copy everything below and paste it directly into your **`README.md`** file on GitHub.
-
-````markdown
 # ☁️ Cloud To-Do App
 
 A simple and responsive **Cloud-Based To-Do List Application** built to help users create, manage, and track their daily tasks. The application uses **Supabase as a cloud database** and is deployed using **Netlify**, making the application accessible online.
@@ -580,7 +577,7 @@ If you find this project useful, you can:
 * 🐛 Report issues
 * 🔧 Contribute to the project
 
----
+
 
 **Built with HTML, CSS, JavaScript, Supabase and Netlify. ☁️🚀**
 
