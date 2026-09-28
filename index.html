@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= AUTH SECTION (Login + Register) ================= -->
+  <section id="auth-section" class="auth-wrapper hidden">
+    <div class="card auth-card">
+      <h1>☁️ Cloud To-Do</h1>
+      <p class="subtitle">Your tasks, safely stored in the cloud.</p>
+
+      <!-- LOGIN FORM -->
+      <form id="login-form">
+        <h2>Login</h2>
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com" required />
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Your password" required />
+        <button type="submit" class="btn primary">Login</button>
+        <p class="switch-text">New user? <a href="#" id="show-register">Register here</a></p>
+      </form>
+
+      <!-- REGISTER FORM -->
+      <form id="register-form" class="hidden">
+        <h2>Create Account</h2>
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" placeholder="you@example.com" required />
+        <label for="register-password">Password (min 6 characters)</label>
+        <input type="password" id="register-password" placeholder="Create a password" required minlength="6" />
+        <label for="register-confirm">Confirm Password</label>
+        <input type="password" id="register-confirm" placeholder="Repeat password" required minlength="6" />
+        <button type="submit" class="btn primary">Register</button>
+        <p class="switch-text">Already have an account? <a href="#" id="show-login">Login here</a></p>
+      </form>
+
+      <!-- Shows error / success messages -->
+      <p id="auth-message" class="message"></p>
+    </div>
+  </section>
+
+  <!-- ================= DASHBOARD SECTION ================= -->
+  <section id="dashboard-section" class="hidden">
+    <header class="topbar">
+      <h1>☁️ Cloud To-Do</h1>
+      <div class="user-info">
+        <span id="user-email"></span>
+        <button id="logout-btn" class="btn danger small">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <!-- ADD / EDIT TASK FORM -->
+      <div class="card">
+        <h2 id="form-title">Add New Task</h2>
+        <form id="task-form">
+          <label for="task-title">Title *</label>
+          <input type="text" id="task-title" placeholder="e.g. Submit CC assignment" required maxlength="100" />
+
+          <label for="task-desc">Description</label>
+          <textarea id="task-desc" rows="3" placeholder="Task details (optional)" maxlength="500"></textarea>
+
+          <label for="task-due">Due Date</label>
+          <input type="date" id="task-due" />
+
+          <div class="form-buttons">
+            <button type="submit" id="save-btn" class="btn primary">Add Task</button>
+            <button type="button" id="cancel-edit-btn" class="btn secondary hidden">Cancel Edit</button>
+          </div>
+        </form>
+        <p id="task-message" class="message"></p>
+      </div>
+
+      <!-- FILTER BUTTONS -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All (<span id="count-all">0</span>)</button>
+        <button class="filter-btn" data-filter="pending">Pending (<span id="count-pending">0</span>)</button>
+        <button class="filter-btn" data-filter="completed">Completed (<span id="count-completed">0</span>)</button>
+      </div>
+
+      <!-- TASK LIST -->
+      <div id="task-list" class="task-list"></div>
+      <p id="empty-text" class="empty hidden">No tasks to show. Add your first task above!</p>
+
+    </main>
+  </section>
+
+  <!-- type="module" is required for Firebase modular SDK -->
+  <script type="module" src="script.js"></script>
+  
+</body>
+</html>
